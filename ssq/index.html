@@ -35,28 +35,28 @@ $(document).ready(
 			$("#count").append(create());
 	})
 
-  //   $.ajax({
-  //       url: 'http://f.apiplus.cn/ssq.json',
-  //       dataType: 'jsonp',
-  //       type: 'POST',
-		// timeout: 5000,  //设定超时5秒
-  //       cache: false,   //禁用缓存
-  //       jsonp: 'callback',
-  //       success: function(result){
-  //       	var okay = $("#okay");
-		// 	okay.append("<br>历史开奖数据：<br>");
-		// 	for (var i=0; i < result.data.length; i++) {
-		// 		var p = result.data[i].expect;
-		// 		okay.append('<br>开奖时间：'+result.data[i].opentime);
-		// 		okay.append('<br>开奖期号：'+p.substr(-3,3));
-		// 		okay.append('<br>开奖号码：'+result.data[i].opencode);
-		// 		okay.append('<br>');
-		// 	}
-  //       },
-  //       error: function(XMLHttpRequest, textStatus, errorThrown) {  
-  //           alert("");
-  //       }
-  //   });
+    $.ajax({
+        url: 'http://f.apiplus.cn/ssq.json',
+        dataType: 'jsonp',
+        type: 'POST',
+		timeout: 5000,  //设定超时5秒
+        cache: false,   //禁用缓存
+        jsonp: 'callback',
+        success: function(result){
+        	var okay = $("#okay");
+			okay.append("<br>历史开奖数据：<br>");
+			for (var i=0; i < result.data.length; i++) {
+				var p = result.data[i].expect;
+				okay.append('<br>开奖时间：'+result.data[i].opentime);
+				okay.append('<br>开奖期号：'+p.substr(-3,3));
+				okay.append('<br>开奖号码：'+result.data[i].opencode);
+				okay.append('<br>');
+			}
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {  
+            alert("");
+        }
+    });
 
 
 });
