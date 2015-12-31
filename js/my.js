@@ -1,4 +1,5 @@
 var begin = new Date(2014,10,29,18,0,0);
+var windowWidth = $(window).width();
 function getDJS(now){
 	var date = new Date(begin.getTime());
 	var year  = date.getFullYear();
@@ -18,9 +19,6 @@ function getYQZG(begin,end){
 	var hourModel = castArr(dayModel.left,(60*60));
 	var minModel = castArr(hourModel.left, 60);
 	var second = castArr(minModel.left, 1);
-	if (second.time == 0) {
-		fireworks();
-	};
 	return [dayModel.time,hourModel.time,minModel.time,second.time];
 }
 function format(tArr){
@@ -37,6 +35,10 @@ function timedCount()
 	var t=getYQZG(begin,now);
 	$("#djs").html(format(getDJS(now)));
 	$("#yqzg").html(format(t));
+	if(t[3] == 0){
+		fireworks();
+	}
+	resetLover(t[3]);
 	setTimeout("timedCount()",1000);
 }
 function fireworks(){
@@ -46,7 +48,17 @@ function fireworks(){
 		setTimeout('createFirework(8,14,2,null,null,null,null,null,Math.random()>0.5,true)',(i+1)*(1+parseInt(Math.random()*1000)));
 	}
 }
+function resetLover(num){
+	if(num < 5 ){
+		return;
+	}
+	var widthMax  = (windowWidth-40)/2;
+	var widthPerSecond = (widthMax-20)/60;
+	var widthNow = 20 + widthPerSecond*num;
+	$(".move").animate({width: widthNow+"px"}, 900);
+}
 $(document).ready(function(){
 	timedCount();
 	$(".all").height($(window).height());
+	
 });

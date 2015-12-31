@@ -19,11 +19,27 @@ html {
 	background-color: #85A4DD;
 }
 .top{
-	height: 80%;
+	height: 78%;
 }
 .main{
 	height: 20%;
 	background-color: #A0522D;
+}
+.bottom{
+	height: 2%;
+	background-color: #4C4D52;
+}
+.move{
+	width: 20px;
+
+}
+.left{
+	float: left;
+	text-align: right;
+}
+.right{
+	float: right;
+	text-align: left;
 }
 </style>
 
@@ -38,9 +54,17 @@ html {
 		已经走过<span id="yqzg"></span>
 		</div>
 		<div>
-		再过<span id="djs"></span>就 <span id="years"></span>年了。
+		再过<span id="djs"></span>就是 <span id="years"></span>年
 		</div>
 
+	</div>
+	<div class="bottom">
+		<div class="left move">
+		L
+		</div>
+		<div class="right move">
+		R
+		</div>
 	</div>
 </div>
 <div id="fireworks-template">
