@@ -1,5 +1,5 @@
 var begin = new Date(2014,10,29,18,0,0);
-var windowWidth = $(window).width();
+
 function getDJS(now){
 	var date = new Date(begin.getTime());
 	var year  = date.getFullYear();
@@ -58,16 +58,17 @@ function fireworks(){
 		setTimeout('createFirework(8,14,2,null,null,null,null,null,Math.random()>0.5,true)',(i+1)*(1+parseInt(Math.random()*1000)));
 	}
 }
+var windowWidth ;
 function resetLover(num){
-	var widthMax  = (windowWidth-1)/2 - 40;
+	var widthMax  = (windowWidth)/2 - 40;
 	var widthNow = 40 + (widthMax/60)*num;
-
-	//console.log("widthMax"+widthMax+",widthNow"+widthNow);
+//	console.log("windowWidth"+windowWidth+","+"widthMax"+widthMax+",widthNow"+widthNow);
 	$(".move").animate({width: widthNow+"px"}, 950);
 }
 $(document).ready(function(){
 	timedCount();
 	$(".all").height($(window).height());
-	var bottomHeight = $(".bottom").height()
-	$(".move").css("margin-top",((bottomHeight - 40)/2) + "px")
+	var bottomHeight = $(".bottom").height();
+	$(".move").css("margin-top",((bottomHeight - 40)/2) + "px");
+	windowWidth= $(".bottom").width();
 });
