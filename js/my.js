@@ -22,8 +22,18 @@ function getYQZG(begin,end){
 	return [dayModel.time,hourModel.time,minModel.time,second.time];
 }
 function format(tArr){
-	return tArr[0]+"天 "+ tArr[1]+"小时 "+tArr[2]+"分 "+tArr[3]+"秒";
+	var disHour = addZero(tArr[1]);
+	var disMin = addZero(tArr[2]);
+	var disSec = addZero(tArr[3]);
+	return tArr[0]+"天 "+ disHour+"小时 "+disMin+"分 "+disSec+"秒";
 }
+function addZero(num){
+	if(num < 10){
+		return "0" + num;
+	}
+	return num+"";
+}
+
 function castArr(time , cast){
 	var left = time % cast;
 	var c = (time - left)/cast;
@@ -49,17 +59,15 @@ function fireworks(){
 	}
 }
 function resetLover(num){
-	if(num < 5 ){
-		return;
-	}
-	var widthMax  = windowWidth/2 -2;
-	var widthPerSecond = (widthMax-20)/60;
-	var widthNow = 20 + widthPerSecond*num;
-	console.log("widthMax"+widthMax+",widthNow"+widthNow);
-	$(".move").animate({width: widthNow+"px"}, 900);
+	var widthMax  = (windowWidth-1)/2 - 40;
+	var widthNow = 40 + (widthMax/60)*num;
+
+	//console.log("widthMax"+widthMax+",widthNow"+widthNow);
+	$(".move").animate({width: widthNow+"px"}, 950);
 }
 $(document).ready(function(){
 	timedCount();
 	$(".all").height($(window).height());
-	
+	var bottomHeight = $(".bottom").height()
+	$(".move").css("margin-top",((bottomHeight - 40)/2) + "px")
 });
