@@ -15,33 +15,43 @@ html {
     font-family: "microsoft yahei",arial;
     font-size: 100%;
 }
+.all{
+	height: 100%;
+	background-color: #85A4DD;
+}
+
 .top{
-height: 20%;
+	height: 80%;
+	
 }
 .main{
-	height: 80%;
-	background-color: black;
+	height: 20%;
+	background-color: grey;
 
 }
 </style>
 
 <body>
-<div class="top">
-	<div>
-	已经走过<span id="yqzg"></span>
+<div class="all">
+	<div class="top">
+		
 	</div>
-	<div>
-	再过<span id="djs"></span>就 <span id="years"></span>年了。
-	</div>
-</div>
+	
+	<div class="main">
+		<div>
+		已经走过<span id="yqzg"></span>
+		</div>
+		<div>
+		再过<span id="djs"></span>就 <span id="years"></span>年了。
+		</div>
 
-<div class="main">
-	<div id="fireworks-template">
-	 <div id="fw" class="firework"></div>
-	 <div id="fp" class="fireworkParticle"><img src="fireworks/image/particles.gif" alt="" /></div>
 	</div>
-	<div id="fireContainer"></div>
 </div>
+<div id="fireworks-template">
+	<div id="fw" class="firework"></div>
+	<div id="fp" class="fireworkParticle"><img src="fireworks/image/particles.gif" alt="" /></div>
+</div>
+<div id="fireContainer"></div>
 <script>
 var begin = new Date(2014,10,29,18,0,0);
 
@@ -64,7 +74,7 @@ function getYQZG(begin,end){
 	var hourModel = castArr(dayModel.left,(60*60));
 	var minModel = castArr(hourModel.left, 60);
 	var second = castArr(minModel.left, 1);
-	if (second == 0) {
+	if (second.time == 0) {
 		fireworks();
 	};
 	return [dayModel.time,hourModel.time,minModel.time,second.time];
@@ -94,6 +104,7 @@ function fireworks(){
 }
 $(document).ready(function(){
 	timedCount();
+	$(".all").height($(window).height());
 });
 
 </script>
