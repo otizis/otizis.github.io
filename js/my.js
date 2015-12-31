@@ -60,6 +60,9 @@ function fireworks(){
 }
 var windowWidth ;
 function resetLover(num){
+	if(num < 5){
+		return;
+	}
 	var widthMax  = (windowWidth)/2 - 40;
 	var widthNow = 40 + (widthMax/60)*num;
 //	console.log("windowWidth"+windowWidth+","+"widthMax"+widthMax+",widthNow"+widthNow);
