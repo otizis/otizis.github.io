@@ -4,9 +4,13 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="http://lib.sinaapp.com/js/jquery/1.9.0/jquery.js" type="text/javascript"></script>
+<<<<<<< HEAD
     <script src="fireworks/script/fireworks.js" type="text/javascript"></script>
 	<link rel="stylesheet" type="text/css" href="fireworks/style/fireworks.css" media="screen">
 	<title>liumeiren</title>
+=======
+	<title>TaoTao</title>
+>>>>>>> refs/remotes/origin/master
 </head>
 
 <style type="text/css">
@@ -26,6 +30,7 @@ height: 20%;
 </style>
 
 <body>
+<<<<<<< HEAD
 <div class="top">
 	<div>
 	已经走过<span id="yqzg"></span>
@@ -43,6 +48,14 @@ height: 20%;
 	<div id="fireContainer"></div>
 </div>
 
+=======
+<div>
+已经走过<span id="yqzg"></span>
+</div>
+<div>
+再过<span id="djs"></span>就 <span id="years"></span>年了。
+</div>
+>>>>>>> refs/remotes/origin/master
 <script>
 var begin = new Date(2014,10,29,18,0,0);
 
@@ -65,6 +78,7 @@ function getYQZG(begin,end){
 	var hourModel = castArr(dayModel.left,(60*60));
 	var minModel = castArr(hourModel.left, 60);
 	var second = castArr(minModel.left, 1);
+<<<<<<< HEAD
 	if (second == 0) {
 		fireworks();
 	};
@@ -93,6 +107,27 @@ function fireworks(){
 		setTimeout('createFirework(8,14,2,null,null,null,null,null,Math.random()>0.5,true)',(i+1)*(1+parseInt(Math.random()*1000)));
 	}
 }
+=======
+	return [dayModel.time,hourModel.time,minModel.time,second.time];
+}
+function format(tArr){
+	return tArr[0]+"天 "+ tArr[1]+"小时 "+tArr[2]+"分 "+tArr[3]+"秒";
+}
+function castArr(time , cast){
+	var left = time % cast;
+	var c = (time - left)/cast;
+	return {'time':c,'left':left};
+}
+function timedCount()
+{
+	var now = new Date();
+	var t=getYQZG(begin,now);
+	$("#djs").html(format(getDJS(now)));
+	$("#yqzg").html(format(t));
+	setTimeout("timedCount()",1000);
+}
+
+>>>>>>> refs/remotes/origin/master
 $(document).ready(function(){
 	timedCount();
 });
