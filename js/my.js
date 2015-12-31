@@ -52,9 +52,10 @@ function resetLover(num){
 	if(num < 5 ){
 		return;
 	}
-	var widthMax  = (windowWidth-40)/2;
+	var widthMax  = windowWidth/2 -2;
 	var widthPerSecond = (widthMax-20)/60;
 	var widthNow = 20 + widthPerSecond*num;
+	console.log("widthMax"+widthMax+",widthNow"+widthNow);
 	$(".move").animate({width: widthNow+"px"}, 900);
 }
 $(document).ready(function(){
