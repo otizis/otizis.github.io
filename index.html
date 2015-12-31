@@ -4,13 +4,12 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="http://lib.sinaapp.com/js/jquery/1.9.0/jquery.js" type="text/javascript"></script>
-    <script src="fireworks/script/fireworks.js" type="text/javascript"></script>
-	<link rel="stylesheet" type="text/css" href="fireworks/style/fireworks.css" media="screen">
+	<script src="js/fireworks-min.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="css/fireworks.css" media="screen">
 	<title>liumeiren</title>
 </head>
 
 <style type="text/css">
-
 html {
     font-family: "microsoft yahei",arial;
     font-size: 100%;
@@ -19,15 +18,12 @@ html {
 	height: 100%;
 	background-color: #85A4DD;
 }
-
 .top{
 	height: 80%;
-	
 }
 .main{
 	height: 20%;
-	background-color: grey;
-
+	background-color: #A0522D;
 }
 </style>
 
@@ -49,66 +45,9 @@ html {
 </div>
 <div id="fireworks-template">
 	<div id="fw" class="firework"></div>
-	<div id="fp" class="fireworkParticle"><img src="fireworks/image/particles.gif" alt="" /></div>
+	<div id="fp" class="fireworkParticle"><img src="img/particles.gif" alt="" /></div>
 </div>
 <div id="fireContainer"></div>
-<script>
-var begin = new Date(2014,10,29,18,0,0);
-
-function getDJS(now){
-	var date = new Date(begin.getTime());
-	var year  = date.getFullYear();
-	var years = 0;
-	while(date < now){
-		year += 1;
-		years++;
-		date.setFullYear(year);
-	}
-	$("#years").html(years);
-	return getYQZG(now,date);
-}
-function getYQZG(begin,end){
-	var dur = (end.getTime() - begin.getTime())/1000;
-
-	var dayModel = castArr(dur , (60*60*24));
-	var hourModel = castArr(dayModel.left,(60*60));
-	var minModel = castArr(hourModel.left, 60);
-	var second = castArr(minModel.left, 1);
-	if (second.time == 0) {
-		fireworks();
-	};
-	return [dayModel.time,hourModel.time,minModel.time,second.time];
-}
-function format(tArr){
-	return tArr[0]+"天 "+ tArr[1]+"小时 "+tArr[2]+"分 "+tArr[3]+"秒";
-}
-function castArr(time , cast){
-	var left = time % cast;
-	var c = (time - left)/cast;
-	return {'time':c,'left':left};
-}
-function timedCount()
-{
-	var now = new Date();
-	var t=getYQZG(begin,now);
-	$("#djs").html(format(getDJS(now)));
-	$("#yqzg").html(format(t));
-	setTimeout("timedCount()",1000);
-}
-function fireworks(){
-	var r=4+parseInt(Math.random()*16);
-	for(var i=r; i--;)
-	{
-		setTimeout('createFirework(8,14,2,null,null,null,null,null,Math.random()>0.5,true)',(i+1)*(1+parseInt(Math.random()*1000)));
-	}
-}
-$(document).ready(function(){
-	timedCount();
-	$(".all").height($(window).height());
-});
-
-</script>
-
-
+<script src="js/my.js" type="text/javascript"></script>
 </body>
 </html>
