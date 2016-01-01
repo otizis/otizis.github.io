@@ -60,12 +60,13 @@ function fireworks(){
 }
 var windowWidth ;
 function resetLover(num){
-	if(num < 5){
-		return;
+	var index = num;
+	if(num == 59|| num < 5){
+		index = 0;
 	}
-	var widthMax  = (windowWidth)/2 - 40;
-	var widthNow = 40 + (widthMax/60)*num;
-//	console.log("windowWidth"+windowWidth+","+"widthMax"+widthMax+",widthNow"+widthNow);
+	var widthMax  = (windowWidth-1)/2 - 40;
+	var widthNow = (windowWidth-1)/2 - (widthMax/60)*index;
+	//console.log("windowWidth"+windowWidth+","+"widthMax"+widthMax+",widthNow"+widthNow);
 	$(".move").animate({width: widthNow+"px"}, 950);
 }
 $(document).ready(function(){
