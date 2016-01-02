@@ -51,6 +51,29 @@ html {
 	float: right;
 	text-align: left;
 }
+.heart{
+	background:url(img/heart.gif) no-repeat;
+	background-position:center bottom; 
+	background-size: 10%;
+	bottom: 20px;
+	display: none;
+	height:79px; 
+	left: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	position: fixed;
+	right: 0px;
+	width:100px;
+}
+.flipx {
+    -moz-transform:scaleX(-1);
+    -webkit-transform:scaleX(-1);
+    -o-transform:scaleX(-1);
+    transform:scaleX(-1);
+    /*IE*/
+    filter:FlipH;
+}
+
 </style>
 
 <body>
@@ -83,6 +106,7 @@ html {
 	<div id="fp" class="fireworkParticle"><img src="img/particles.gif" alt="" /></div>
 </div>
 <div id="fireContainer"></div>
+<div id="heartDiv"></div>
 <script src="js/my.js" type="text/javascript"></script>
 </body>
 </html>

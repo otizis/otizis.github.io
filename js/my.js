@@ -60,14 +60,33 @@ function fireworks(){
 }
 var windowWidth ;
 function resetLover(num){
+
 	var index = num;
 	if(num == 59|| num < 5){
 		index = 0;
+		makeHeart();
 	}
 	var widthMax  = (windowWidth-1)/2 - 40;
 	var widthNow = (windowWidth-1)/2 - (widthMax/60)*index;
 	//console.log("windowWidth"+windowWidth+","+"widthMax"+widthMax+",widthNow"+widthNow);
 	$(".move").animate({width: widthNow+"px"}, 950);
+}
+function makeHeart(){
+	var heart = $("<span></span>");
+	heart.addClass("heart");
+	if(Math.random() > 0.5){
+		heart.addClass("flipx");
+	}
+	$("#heartDiv").append(heart);
+	heart.show();
+	heart.animate(
+		{"background-size":"90%",
+		  bottom:"250px"},
+		2000,
+		function(){
+			heart.remove();
+		}
+	);
 }
 $(document).ready(function(){
 	timedCount();
