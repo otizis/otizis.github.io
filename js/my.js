@@ -72,6 +72,9 @@ function resetLover(num){
 $(document).ready(function(){
 	timedCount();
 	$(".all").height($(window).height());
+	$(".all").click(function (){
+		createFirework(8,14,2,null,null,null,null,null,Math.random()>0.5,true);
+	});
 	var bottomHeight = $(".bottom").height();
 	$(".move").css("margin-top",((bottomHeight - 40)/2) + "px");
 	windowWidth= $(".bottom").width();
