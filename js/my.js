@@ -1,4 +1,4 @@
-var begin = new Date(2014,10,29,18,0,0);
+var begin = new Date(2014,5,20,8,0,0);
 
 function getDJS(now){
 	var date = new Date(begin.getTime());
@@ -79,19 +79,14 @@ function makeHeart(){
 	}
 	$("#heartDiv").append(heart);
 	heart.show();
-	heart.animate(
-		{"background-size":"90%",
-		  bottom:"250px"},
-		2000,
-		function(){
-			heart.remove();
-		}
+	heart.animate({"background-size":"90%",bottom:"250px"},
+		2000,function(){heart.remove();}
 	);
 }
 $(document).ready(function(){
 	timedCount();
-	$(".all").height($(window).height());
-	$(".all").click(function (){
+	$(".all").height($(window).height()).click(function (){
+		makeHeart();
 		createFirework(8,14,2,null,null,null,null,null,Math.random()>0.5,true);
 	});
 	var bottomHeight = $(".bottom").height();
