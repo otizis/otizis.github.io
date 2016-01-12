@@ -17,22 +17,32 @@ html {
 }
 .all{
 	height: 100%;
-	background-color: #85A4DD;
+	background-color: #0A080D;
 }
 .top{
-	height: 70%;
+	height: 80%;
+	text-align: center;
+}
+.top img{
+	height: 100%;
 }
 .main{
-	height: 20%;
-	background-color: #A0522D;
+	height: 10%;
+	text-align: center;
+	font-size: 1.1em;
+	color:#FFF;
+	text-shadow: 0px -1px white, 1px 1px #333;
+}
+.main div{
+	margin-top: 2px;
 }
 .bottom{
 	height: 10%;
-	background-color: #4C4D52;
 }
 .move{
 	width: 20px;
 }
+
 .left{
 	float: left;
 	text-align: right;
@@ -41,17 +51,40 @@ html {
 	float: right;
 	text-align: left;
 }
+.heart{
+	background:url(img/heart.gif) no-repeat;
+	background-position:center bottom; 
+	background-size: 10%;
+	bottom: 20px;
+	display: none;
+	height:79px; 
+	left: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	position: fixed;
+	right: 0px;
+	width:100px;
+}
+.flipx {
+    -moz-transform:scaleX(-1);
+    -webkit-transform:scaleX(-1);
+    -o-transform:scaleX(-1);
+    transform:scaleX(-1);
+    /*IE*/
+    filter:FlipH;
+}
+
 </style>
 
 <body>
 <div class="all">
 	<div class="top">
-		
+		<img src="img/shatan.jpg" />
 	</div>
 	
 	<div class="main">
 		<div>
-		已经走过<span id="yqzg"></span>
+		我们牵手<span id="yqzg"></span>
 		</div>
 		<div>
 		再过<span id="djs"></span>就是 <span id="years"></span>年
@@ -60,10 +93,10 @@ html {
 	</div>
 	<div class="bottom">
 		<div class="left move ">
-		<div class="shake shake-constant"><img width="40" src="img/l.gif"/></div>
+		<div class="shake shake-constant"><img width="40" src="img/q_qin_100.gif"/></div>
 		</div>
 		<div class="right move">
-		<div class="shake shake-constant"><img width="40" src="img/r.gif"/></div>
+		<div class="shake shake-constant"><img width="40" src="img/t_qin_100.gif"/></div>
 		</div>
 		</div>
 	</div>
@@ -73,6 +106,7 @@ html {
 	<div id="fp" class="fireworkParticle"><img src="img/particles.gif" alt="" /></div>
 </div>
 <div id="fireContainer"></div>
+<div id="heartDiv"></div>
 <script src="js/my.js" type="text/javascript"></script>
 </body>
 </html>
