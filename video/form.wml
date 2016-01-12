@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.1//EN" "http://www.wapforum.org/DTD/wml_1.1.xml">
+
+<wml>
+
+<card id="card1" ordered="false">
+
+<p>
+
+USERNAME:<input name="userName" title="User Name" type="text" value="YourNameHere" format="*M" emptyok="false" maxlength="12" tabindex="1"/>
+
+PASSWORD:<input name="password" title="Password" type="password" format="8x" emptyok="false" maxlength="8" tabindex="2"/>
+
+COMMENTS:<input name="comments" title="comment" type="text" value="YourCommentsHere" format="*M" emptyok="true" maxlength="30" tabindex="3"/>
+
+</p>
+
+</card>
+
+</wml> 
