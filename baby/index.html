@@ -26,11 +26,26 @@ button{
 </head>
 <body>
 <span id="qqLoginBtn"></span>
+<a href="javascript:gotoT()">查看历史</a>
 <hr/>
 <script type="text/javascript">
 QC.Login({
        btnId:"qqLoginBtn"    //插入按钮的节点id
 });
+// 跳转到微博
+function gotoT(){
+	var paras = {format : "json"};
+	QC.api("get_info", paras)
+		.success(function(s){//成功回调
+			window.location = "http://t.qq.com/"+s.data.name;
+		})
+		.error(function(f){
+			layer.open({
+			    content: '失败',
+			    time: 2 
+			});
+		});
+}
 function postFeed(topic,value){
 	var loading = layer.open({type: 2});
 	if(!QC.Login.check()){//如果已登录
@@ -59,6 +74,7 @@ function postFeed(topic,value){
 }
 
 </script>
+
 <div id="milk">
   {{ value }}ml <button v-on:click="add10">+10</button> <button v-on:click="cut10">-10</button>
   <br/>
