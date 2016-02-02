@@ -66,6 +66,7 @@ function postFeed(topic,value){
 			});
 		})
 		.complete(function(c){//完成请求回调
+			$("#history").prepend("<span>"+paras.content+"</span><br/>");
 			layer.close(loading);
 			layer.open({
 			    content: '记录完成',
@@ -79,15 +80,17 @@ function postFeed(topic,value){
 <div id="milk">
   {{ value }}ml <button v-on:click="add10">+10</button> <button v-on:click="cut10">-10</button>
   <br/>
-  <button class="post" v-on:click="post">milk</button>
+  <button class="post" v-on:click="post">喂奶</button>
 </div>
 
 <hr/>
 <div id="paper">
-  <button class="post" v-on:click="post">paper</button>
+  <button class="post" v-on:click="post">纸尿裤</button>
 </div>
 
 <hr/>
+<div id="history">
+</div>
 </body>
 <script type="text/javascript">
 new Vue({
@@ -103,7 +106,7 @@ new Vue({
 		    	this.value = this.value -10;
 			},
 			post: function(){
-				postFeed("milk",this.value+"ml")
+				postFeed("喂奶",this.value+"ml")
 			}
 		  }
 	});
@@ -113,7 +116,7 @@ new Vue({
 	  },
 	  methods: {
 			post: function(){
-				postFeed("paper","")
+				postFeed("纸尿裤","")
 			}
 		  }
 	});
