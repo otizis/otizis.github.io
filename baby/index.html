@@ -3,15 +3,95 @@
 <head>
 <meta charset="UTF-8">
 <title>baby</title>
-<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" 
-data-appid="101287433" data-redirecturi="http://liumeiren.com/baby/callback.html" charset="utf-8"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101287433" data-redirecturi="http://liumeiren.com/baby/callback.html" charset="utf-8"></script>
+<script src="http://lib.sinaapp.com/js/jquery/1.9.0/jquery.js" type="text/javascript"></script>
+<script src="http://apps.bdimg.com/libs/layer.m/1.5/layer.m.js"></script>
+<script src="http://apps.bdimg.com/libs/vue/1.0.8/vue.min.js"></script>
+<link href="http://apps.bdimg.com/libs/layer.m/1.5/need/layer.css" rel="stylesheet">
+<style type="text/css">
+.post{
+	width: 25%;
+	height: 30px;
+	background-color: rgb(0, 153, 204);
+	margin: 20px;
+	text-align: center;
+	list-style-type:none;
+}
+button{
+	width:60px;
+	height:30px;
+}
+</style>
 </head>
 <body>
 <span id="qqLoginBtn"></span>
+<hr/>
 <script type="text/javascript">
-    QC.Login({
+QC.Login({
        btnId:"qqLoginBtn"    //插入按钮的节点id
 });
+function postFeed(topic,value){
+	if(!QC.Login.check()){//如果已登录
+		layer.open({
+		    content: '登陆记录到腾讯微博。。',
+		    time: 2 
+		});
+	}
+	
+	var paras = {content : "#"+topic+"#"+value+"时间:"+new Date().toLocaleString()};
+	QC.api("add_t", paras)
+		.error(function(f){//失败回调
+			layer.open({
+			    content: '发送微博失败！',
+			    time: 2 
+			});
+		})
+}
+
 </script>
+<div id="milk">
+  {{ value }}ml
+  <button v-on:click="add10">+10</button>
+  <button v-on:click="cut10">-10</button>
+  <br/>
+  <button class="post" v-on:click="post">post</button>
+</div>
+
+<hr/>
+<div id="paper">
+  <button class="post" v-on:click="post">post</button>
+</div>
+
+<hr/>
 </body>
+<script type="text/javascript">
+new Vue({
+	  el: '#milk',
+	  data: {
+	    value: 50
+	  },
+	  methods: {
+		    add10: function (event) {
+		      this.value = this.value +10;
+		    },
+		    cut10: function (event) {
+		    	this.value = this.value -10;
+			},
+			post: function(){
+				postFeed("milk",this.value+"ml")
+			}
+		  }
+	});
+new Vue({
+	  el: '#paper',
+	  data: {
+	  },
+	  methods: {
+			post: function(){
+				postFeed("paper","")
+			}
+		  }
+	});
+</script>
 </html>
