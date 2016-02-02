@@ -37,7 +37,8 @@ function gotoT(){
 	var paras = {format : "json"};
 	QC.api("get_info", paras)
 		.success(function(s){//成功回调
-			window.location = "http://t.qq.com/"+s.data.name;
+			var name = s.data.data.name;
+			window.location = "http://t.qq.com/"+name;
 		})
 		.error(function(f){
 			layer.open({
