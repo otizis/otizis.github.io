@@ -32,14 +32,16 @@ QC.Login({
        btnId:"qqLoginBtn"    //插入按钮的节点id
 });
 function postFeed(topic,value){
+	var loading = layer.open({type: 2});
 	if(!QC.Login.check()){//如果已登录
+		layer.close(loading);
 		layer.open({
 		    content: '登陆记录到腾讯微博。。',
 		    time: 2 
 		});
 	}
+	var paras = {content : "#"+topic+"#"+value+",时间:"+new Date().toLocaleString()};
 	
-	var paras = {content : "#"+topic+"#"+value+"时间:"+new Date().toLocaleString()};
 	QC.api("add_t", paras)
 		.error(function(f){//失败回调
 			layer.open({
@@ -47,20 +49,25 @@ function postFeed(topic,value){
 			    time: 2 
 			});
 		})
+		.complete(function(c){//完成请求回调
+			layer.close(loading);
+			layer.open({
+			    content: '记录完成',
+			    time: 2 
+			});
+		});
 }
 
 </script>
 <div id="milk">
-  {{ value }}ml
-  <button v-on:click="add10">+10</button>
-  <button v-on:click="cut10">-10</button>
+  {{ value }}ml <button v-on:click="add10">+10</button> <button v-on:click="cut10">-10</button>
   <br/>
-  <button class="post" v-on:click="post">post</button>
+  <button class="post" v-on:click="post">milk</button>
 </div>
 
 <hr/>
 <div id="paper">
-  <button class="post" v-on:click="post">post</button>
+  <button class="post" v-on:click="post">paper</button>
 </div>
 
 <hr/>
