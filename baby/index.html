@@ -78,7 +78,7 @@ function postFeed(topic,value){
 </script>
 
 <div id="milk">
-  {{ value }}ml <button v-on:click="add10">+10</button> <button v-on:click="cut10">-10</button>
+  <button v-on:click="add10">+10</button> {{value}} ml <button v-on:click="cut10">-10</button>
   <br/>
   <button class="post" v-on:click="post">喂奶</button>
 </div>
@@ -88,6 +88,10 @@ function postFeed(topic,value){
   <button class="post" v-on:click="post">纸尿裤</button>
 </div>
 
+<hr/>
+<div id="jinai">
+  <button class="post" v-on:click="post">挤奶</button>
+</div>
 <hr/>
 <div id="history">
 </div>
@@ -117,6 +121,16 @@ new Vue({
 	  methods: {
 			post: function(){
 				postFeed("纸尿裤","")
+			}
+		  }
+	});
+new Vue({
+	  el: '#jinai',
+	  data: {
+	  },
+	  methods: {
+			post: function(){
+				postFeed("挤奶","")
 			}
 		  }
 	});
