@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>baby</title>
+	<script src="http://apps.bdimg.com/libs/layer.m/1.5/layer.m.js"></script>
+	<script src="http://apps.bdimg.com/libs/vue/1.0.8/vue.min.js"></script>
+	<link href="http://apps.bdimg.com/libs/layer.m/1.5/need/layer.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="milk">
+  <button v-on:click="cut10">-10</button> {{ value }}ml  <button v-on:click="add10">+10</button>
+  <br/>
+  <button class="post" v-on:click="post">喂奶</button>
+  <hr/>
+  <button v-on:click="after">晚一天</button> {{ displayDay }}  <button v-on:click="before">早一天</button>
+  <br/>
+  总计：{{dayTotal}}ml
+  <ul>
+    <li v-for="day in displayDayList">
+      <span>{{ day.time}}</span>:<span>{{ day.value }}ml</span>
+      <button v-on:click="removeTodo($index)">X</button><button v-on:click="update($index)">?</button>
+    </li>
+  </ul>
+</div>
+
+
+
+</body>
+<script type="text/javascript">
+function addAction(topic ,dayKey, obj){
+	if(!localStorage[topic]){
+		localStorage[topic] = "{}";
+	}
+	var action = JSON.parse(localStorage[topic]);
+	if(!action[dayKey]){
+		action[dayKey] = new Array();
+	}
+	action[dayKey].push(obj);
+	localStorage[topic] =JSON.stringify(action);
+	return action[dayKey];
+}
+function delAction(topic ,dayKey, index){
+	if(!localStorage[topic]){
+		return;
+	}
+	var action = JSON.parse(localStorage[topic]);
+	if(!action[dayKey]){
+		return;
+	}
+	action[dayKey].splice(index, 1);
+	localStorage[topic] =JSON.stringify(action);
+	return action[dayKey];
+}
+
+new Vue({
+	  el: '#milk',
+	  data: {
+	  	topic:"milk",
+	    value: (localStorage.milk_value) ? 	Number(localStorage.milk_value) :50,
+	    displayDay:"",
+	    displayDayList:[],
+	    dayTotal:0
+	  },
+	  methods: {
+		    add10: function (event) {
+		      this.value = this.value +10;
+		      localStorage.milk_value = this.value;
+		    },
+		    cut10: function (event) {
+		    	this.value = this.value -10;
+		    	localStorage.milk_value = this.value;
+			},
+			post: function(){
+				var date = new Date();
+				var dayKey = date.getFullYear() + "_" + (date.getMonth() + 1) + "_"+ date.getDate();
+				var time = date.toTimeString().substr(0,8);
+				var actionDay = addAction(this.topic,dayKey,{"time":time,"value":this.value});
+				this.displayDayList = actionDay;
+				this.displayDay = dayKey;
+				var total = 0;
+				for(i=0;i<actionDay.length;i++){
+					total +=actionDay[i].value;
+				}
+				this.dayTotal = total;
+			},
+			removeTodo:function(index){
+				this.displayDayList = delAction(this.topic ,this.displayDay, index);
+				var total = 0;
+				for(i=0;i<this.displayDayList.length;i++){
+					total +=this.displayDayList[i].value;
+				}
+				this.dayTotal = total;
+			},
+			after:function(){
+
+			}
+		  }
+	});
+</script>
+</html>

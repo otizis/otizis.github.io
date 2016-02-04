@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>baby</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101287433" data-redirecturi="http://liumeiren.com/baby/callback.html" charset="utf-8"></script>
+	<script src="http://lib.sinaapp.com/js/jquery/1.9.0/jquery.js" type="text/javascript"></script>
+	<script src="http://apps.bdimg.com/libs/layer.m/1.5/layer.m.js"></script>
+	<script src="http://apps.bdimg.com/libs/vue/1.0.8/vue.min.js"></script>
+	<link href="http://apps.bdimg.com/libs/layer.m/1.5/need/layer.css" rel="stylesheet">
+	<style type="text/css">
+	.action{
+		width: 100%;
+		height: 60px;
+		background-color: rgb(0, 153, 204);
+		font-size: 40px;
+	}
+	button{
+		width:60px;
+		height:30px;
+	}
+	</style>
+</head>
+<body>
+	<span id="qqLoginBtn"></span>
+	<span style="padding: 22px;">|</span><a href="javascript:gotoT()">查看历史</a>
+	<hr/>
+	<script type="text/javascript">
+	QC.Login({
+	       btnId:"qqLoginBtn"    //插入按钮的节点id
+	});
+	// 跳转到微博
+	function gotoT(){
+		var paras = {format : "json"};
+		QC.api("get_info", paras)
+			.success(function(s){//成功回调
+				var name = s.data.data.name;
+				window.location = "http://t.qq.com/"+name;
+			})
+			.error(function(f){
+				layer.open({
+				    content: '失败',
+				    time: 2 
+				});
+			});
+	}
+	function postFeed(topic,value){
+		var loading = layer.open({type: 2});
+		if(!QC.Login.check()){//如果已登录
+			layer.close(loading);
+			layer.open({
+			    content: '登陆记录到腾讯微博。。',
+			    time: 2 
+			});
+		}
+		var date = new Date();
+		var dayKey = date.getFullYear() + "/" + (date.getMonth() + 1) + "/"+ date.getDate();
+		var time = date.toTimeString().substr(0,8);
+		var paras = {content : "#"+topic+"#"+value+",时间:"+dayKey+" "+time};
+		layer.open({
+					title: '是否进行记录',
+				    content: paras.content,
+				    btn: ['嗯', '错啦'],
+				    yes: function(){
+				        	QC.api("add_t", paras)
+								.error(function(f){//失败回调
+									layer.open({
+									    content: '发送微博失败！',
+									    time: 2 
+									});
+								})
+								.complete(function(c){//完成请求回调
+									$("#history").prepend("<span>"+paras.content+"</span><br/>");
+									layer.close(loading);
+									layer.open({
+									    content: '记录完成',
+									    time: 2 
+									});
+								});
+				    }
+				});
+
+	}
+
+	</script>
+
+	<div id="milk">
+	  <button v-on:click="add10">+10</button> {{value}} ml <button v-on:click="cut10">-10</button>
+	  <br/>
+	  <button class="action" v-on:click="post">喂奶</button>
+	</div>
+
+	<hr/>
+	<div id="paper">
+	  <button class="action" v-on:click="post">纸尿裤</button>
+	</div>
+
+	<hr/>
+	<div id="jinai">
+	  <button class="action" v-on:click="post">挤奶</button>
+	</div>
+	<hr/>
+	<div id="history">
+	</div>
+</body>
+<script type="text/javascript">
+new Vue({
+	  el: '#milk',
+	  data: {
+	    value: (localStorage.milk_value) ? 	Number(localStorage.milk_value) :60
+	  },
+	  methods: {
+		    add10: function (event) {
+		    	this.value = this.value +10;
+		    	localStorage.milk_value = this.value;
+		    },
+		    cut10: function (event) {
+		    	this.value = this.value -10;
+		    	localStorage.milk_value = this.value;
+			},
+			post: function(){
+				postFeed("喂奶",this.value+"ml")
+			}
+		  }
+	});
+new Vue({
+	  el: '#paper',
+	  data: {
+	  },
+	  methods: {
+			post: function(){
+				layer.open({
+				    content: '是不是拉粑粑了？',
+				    btn: ['嗯', '没有'],
+				    yes: function(){
+				        postFeed("纸尿裤","有粑粑")
+				    },
+				    no:function(){
+						postFeed("纸尿裤","没有粑粑")
+				    }
+				});
+				
+			}
+		  }
+	});
+new Vue({
+	  el: '#jinai',
+	  data: {
+	  },
+	  methods: {
+			post: function(){
+				postFeed("挤奶","")
+			}
+		  }
+	});
+</script>
+</html>
