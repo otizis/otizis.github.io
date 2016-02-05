@@ -25,7 +25,8 @@
 </head>
 <body>
 	<span id="qqLoginBtn"></span>
-	<span style="padding: 22px;">|</span><a href="javascript:gotoT()">查看历史</a>
+	<span style="padding: 22px;">|</span>
+	<span id="weibolink"></span>
 	<hr/>
 	<script type="text/javascript">
 	QC.Login({
@@ -157,5 +158,17 @@ new Vue({
 			}
 		  }
 	});
+
+$(document).ready(function() {
+		if(QC.Login.check()){
+			var paras = {format : "json"};
+			QC.api("get_info", paras)
+			.success(function(s){//成功回调
+				var result = s.data.data;
+				$("#weibolink").append("<img src='"+result.head+"/100'/><a target='_blank' href='http://t.qq.com/"+result.name+"'>查看历史</a>");
+			});
+		}
+}); 
+
 </script>
 </html>
