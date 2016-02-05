@@ -18,8 +18,9 @@
 		font-size: 40px;
 	}
 	button{
-		width:60px;
-		height:30px;
+		width:80px;
+		height:40px;
+		font-size:20px;
 	}
 	</style>
 </head>
@@ -89,8 +90,12 @@
 
 	</script>
 
-	<div id="milk">
-	  <button v-on:click="add10">+10</button> {{value}} ml <button v-on:click="cut10">-10</button>
+	<div id="milk" style="text-align:center">
+		<div >
+			<button v-on:click="cut10">-10</button>
+			<span style="font-size:20px"> {{value}} ml </span>
+			<button v-on:click="add10">+10</button>
+	  	</div>
 	  <br/>
 	  <button class="action" v-on:click="post">喂奶</button>
 	</div>
