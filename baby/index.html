@@ -23,6 +23,18 @@
 		height:40px;
 		font-size:20px;
 	}
+	.cell1 {
+    	width: 60px;
+		display: inline-block;
+	}
+	.cell2 {
+    	width: 80px;
+		display: inline-block;
+	}
+	.cell3 {
+    	width: 60px;
+		display: inline-block;
+	}
 	</style>
 </head>
 <body>
@@ -68,7 +80,7 @@
 				day : dayKey,
 				time: time,
 				getMessage:function(){
-					return this.topic +" "+ this.par +" ["+ this.day + this.time + "]";
+					return this.topic +" "+ this.par +" ["+ this.day +"-"+ this.time + "]";
 				}};
 		layer.open({
 					title: '是否进行记录',
@@ -84,7 +96,10 @@
 									});
 								})
 								.complete(function(c){//完成请求回调
-									$("#history").prepend("<span>"+paras.time+"</span>"+paras.topic+paras.par+"<br/>");
+									$("#history").prepend(
+										"<span class='cell1'>"+paras.time+"</span>"+
+										"<span class='cell2'>"+paras.topic+"</span>"+
+										"<span class='cell3'>"+paras.par+"</span><br/>");
 									layer.close(loading);
 									layer.open({
 									    content: '记录完成',
