@@ -4,9 +4,6 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>babyTimeLine</title>
-	<script src="http://apps.bdimg.com/libs/layer.m/1.5/layer.m.js"></script>
-	<script src="http://apps.bdimg.com/libs/vue/1.0.8/vue.min.js"></script>
-	<link href="http://apps.bdimg.com/libs/layer.m/1.5/need/layer.css" rel="stylesheet">
 	<script src="http://lib.sinaapp.com/js/jquery/1.9.0/jquery.js" type="text/javascript"></script>
 	<style type="text/css">
 	.line{
@@ -21,7 +18,7 @@
 	.line-cell{
 		width:20%;
 		float:left;
-		height: 40px;
+		height: 50px;
 	}
 	.height{
 		background-color:rgb(255, 255, 167);
@@ -38,11 +35,28 @@
 	}
 	.top{
 		position: fixed;
-		height: 40px;
+		height: 50px;
 		width: 100%;
 		background-color: #FF2D00;
 		left: 0px;
 		top: 0px;
+	}
+	.buttom{
+		position: fixed;
+		height: 30px;
+		width: 100%;
+		right: 0px;
+		bottom: 0px;
+		background-color: white;
+	}
+	.buttom span{
+		background-color: #4646ea;
+		color:white;
+	}
+	.icon{
+		width: 75px;
+		height:50px;
+		background-color: #fff;
 	}
 	.main{
 		padding-top:45px;
@@ -52,18 +66,25 @@
 <body>
 	<div class='top'>
 		总计：<span id="total"></span>ml
-		<button onclick="gotoNow()">goto Now</button>
+		<div id="topic">
+			<div class="line-cell line-head">时间</div>
+			<div class="line-cell">喂奶</div>
+			<div class="line-cell">纸尿裤</div>
+			<div class="line-cell">挤奶</div>
+		</div>
 	</div>
 
 	<div class="main" id="main">
 	</div>
 
-	<div>
-		
-
+	<div class="buttom">
+		<span id="gotoNow">当前时间</span>|
+		<span id="toggleEmpty">切换空白</span>
+		<span id="toggleAll">显示全部</span>|
 	</div>
 </body>
 <script type="text/javascript">
+$("#toggleAll").hide();
 function getTimeFormat(index){
 	var min = index % 6;
 	var hour = (index-min) / 6;
@@ -86,14 +107,14 @@ function totalCount(){
 function gotoNow(){
 	$('html,body').animate({scrollTop: $("#t"+getNowIndex()).offset().top - 200}, 500,
 		function(){
-			$('#t'+getNowIndex()).parent().hide().fadeIn("slow");
+			$('#t'+getNowIndex()).parent().fadeOut("fast").fadeIn("fast");
 		});
 	
 
 }
 $(document).ready(function() {
 		var main = $("#main");
-		for (i = 0; i < 144; i++) 
+		for (i = 0; i <= 144; i++) 
 		{
 			var line = $("<div class='line'></div>");
 			
@@ -112,7 +133,7 @@ $(document).ready(function() {
 
 			main.append(line);
 		}
-
+		main.append($("<div class='line'><div class='line-cell'></div></div>"));
 		gotoNow();
 
 		$(".milk").click(
@@ -159,6 +180,41 @@ $(document).ready(function() {
 					return;
 				}
 				$(this).html("<span class='make-span'>did one</span>");
+			}
+		);
+		$("#toggleEmpty").click(
+			function(){
+				$("#toggleAll").show();
+				$(this).hide();
+				$(".line").hide();
+				$(".milk").each(function(){
+					if($(this).html()){
+						$(this).parent().show();
+					}
+				});
+				$(".paper").each(function(){
+					if($(this).html()){
+						$(this).parent().show();
+					}
+				});
+				$(".make").each(function(){
+					if($(this).html()){
+						$(this).parent().show();
+					}
+				});
+			}
+		);
+		$("#toggleAll").click(
+			function(){
+				$("#toggleEmpty").show();
+				$(this).hide();
+				$(".line").show();
+				gotoNow();
+			}
+		);
+		$("#gotoNow").click(
+			function(){
+				gotoNow();
 			}
 		);
 })
