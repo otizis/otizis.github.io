@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>babyTimeLine</title>
+	<script src="http://apps.bdimg.com/libs/layer.m/1.5/layer.m.js"></script>
+	<script src="http://apps.bdimg.com/libs/vue/1.0.8/vue.min.js"></script>
+	<link href="http://apps.bdimg.com/libs/layer.m/1.5/need/layer.css" rel="stylesheet">
+	<script src="http://lib.sinaapp.com/js/jquery/1.9.0/jquery.js" type="text/javascript"></script>
+	<style type="text/css">
+	.line{
+		width:100%;
+		float:left;
+		border-style: solid;
+		border-color: #ffffff
+	}
+	.line-head{
+		width:50px;
+	}
+	.line-cell{
+		width:20%;
+		float:left;
+		height: 40px;
+	}
+	.height{
+		background-color:rgb(255, 255, 167);
+	}
+	.milk{
+		background-color:#F8FFAF;
+
+	}
+	.paper{
+		background-color:#FFCBAF;
+	}
+	.make{
+		background-color:#AFF7FF;
+	}
+	.top{
+		position: fixed;
+		height: 40px;
+		width: 100%;
+		background-color: #FF2D00;
+		left: 0px;
+		top: 0px;
+	}
+	.main{
+		padding-top:45px;
+	}
+	</style>
+</head>
+<body>
+	<div class='top'>
+		总计：<span id="total"></span>ml
+		<button onclick="gotoNow()">goto Now</button>
+	</div>
+
+	<div class="main" id="main">
+	</div>
+
+	<div>
+		
+
+	</div>
+</body>
+<script type="text/javascript">
+function getTimeFormat(index){
+	var min = index % 6;
+	var hour = (index-min) / 6;
+	return hour+":"+min + "0";
+}
+function getNowIndex(){
+	var now = new Date();
+	var hour = now.getHours();
+	var mint = Math.round(now.getMinutes()/10);
+	return hour*6 + mint;
+}
+function totalCount(){
+	var total = 0;
+	$(".milk-span").each(function(){
+		var value = $(this).text();
+		total += Number(value);
+	});
+	$("#total").text(total);
+}
+function gotoNow(){
+	$('html,body').animate({scrollTop: $("#t"+getNowIndex()).offset().top - 200}, 500,
+		function(){
+			$('#t'+getNowIndex()).parent().hide().fadeIn("slow");
+		});
+	
+
+}
+$(document).ready(function() {
+		var main = $("#main");
+		for (i = 0; i < 144; i++) 
+		{
+			var line = $("<div class='line'></div>");
+			
+
+			var head_div = $("<div id='t"+i+"' class='line-cell line-head'>"+getTimeFormat(i)+"</div>");
+			line.append(head_div);
+
+			var div_1 = $("<div class='line-cell milk'></div>");
+			line.append(div_1);
+
+			var div_2 = $("<div class='line-cell paper'></div>");
+			line.append(div_2);
+
+			var div_3 = $("<div class='line-cell make'></div>");
+			line.append(div_3);
+
+			main.append(line);
+		}
+
+		gotoNow();
+
+		$(".milk").click(
+			function(){
+				if($(this).html()){
+					if(confirm("delete?")){
+						$(this).empty();
+					}
+					totalCount()
+					return;
+				}
+
+				var value = prompt("Please enter ml","100");
+				var re = /^[0-9]+$/; 
+				if(re.test(value)){
+					$(this).html("<span class='milk-span'>"+value+"</span>ml");
+					totalCount();
+				}
+			}
+		);
+
+		$(".paper").click(function(){
+			if($(this).html()){
+				if(confirm("delete?")){
+					$(this).empty();
+				}
+				return;
+			}
+			var paperDiv = "<span class='paper-span'>no-popo</span>";
+			if (confirm("have po-po ?"))
+			{
+				paperDiv = "<span class='paper-span'>have-popo</span>";
+			}
+			$(this).html(paperDiv);
+			
+		});
+
+		$(".make").click(
+			function(){
+				if($(this).html()){
+					if(confirm("delete?")){
+						$(this).empty();
+					}
+					return;
+				}
+				$(this).html("<span class='make-span'>did one</span>");
+			}
+		);
+})
+
+</script>
+</html>
