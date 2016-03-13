@@ -10,6 +10,9 @@
 	</script>
 <script src="http://vjs.zencdn.net/5.0/video.min.js"></script>
 <style type="text/css">
+body{
+	margin:0;
+}
 .video-js .vjs-big-play-button:before,.video-js .vjs-control:before {
 	position:absolute;
 	top:0;
@@ -342,7 +345,7 @@ body.vjs-full-window {
 	color:inherit;
 	display:inline-block;
 	overflow:visible;
-	font-size:inherit;
+	font-size:2em;
 	line-height:inherit;
 	text-transform:none;
 	text-decoration:none;
@@ -471,7 +474,7 @@ body.vjs-full-window {
 	bottom:0;
 	left:0;
 	right:0;
-	height:3em;
+	height:5em;
 	background-color:#2B333F;
 	background-color:rgba(43,51,63,.7)
 }
@@ -839,7 +842,7 @@ body.vjs-full-window {
 	-webkit-flex:none;
 	-ms-flex:none;
 	flex:none;
-	font-size:1em;
+	font-size:2em;
 	line-height:3em
 }
 .vjs-live .vjs-time-control {
@@ -1144,8 +1147,11 @@ body.vjs-full-window {
 </body>
 <script type="text/javascript">
 var mtnvideo;
+var w_width = document.body.clientWidth;
 mtnvideo = videojs("example_video_1", 
 {
+	width:w_width,
+	height:480,
 	controls:true,
  	controlBar: {
  				volumeMenuButton:false,
