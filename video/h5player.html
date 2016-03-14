@@ -1156,10 +1156,11 @@ body.vjs-full-window {
 <script type="text/javascript">
 var mtnvideo;
 var w_width = document.body.clientWidth;
+var w_height = (360*w_width)/640;
 mtnvideo = videojs("example_video_1", 
 {
 	width:w_width,
-	height:480,
+	height:w_height,
 	controls:true,
  	controlBar: {
  				volumeMenuButton:false,
