@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>test app</h1>
+<script type="text/javascript">
+if (navigator.userAgent.match(/android/i))
+{
+	var ifr = document.createElement('iframe');
+	ifr.src = 'vnd.youtube:qz9n2PvjbhY?vndclient=mv-google&vndel=watch&vndapp=youtube_mobile';
+	ifr.style.display = 'none';
+	document.body.appendChild(ifr);
+
+
+	var download = document.createElement('a');
+	download.href = "http://192.168.3.15:9090/videowap";
+	download.text="没有安装youtube，链接展示出来";
+	setTimeout(function() {
+		document.body.removeChild(ifr);
+		document.body.appendChild(download);
+	}, 1000);
+};
+</script>
+</body>
+</html>
