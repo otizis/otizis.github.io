@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-itunes-app" content="app-id=739652274">
+<meta http-equiv="Refresh" content="2;url=mtncomedy://mtnnow?contentId=1004225" />
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Test open app!</h1>
+<script type="text/javascript">
+var uap = document.createElement('p');
+uap.innerHTML = navigator.userAgent;
+document.body.appendChild(uap );
+if (navigator.userAgent.match(/android/i))
+{
+var msgp = document.createElement('p');
+msgp.innerHTML = "need open android app.";
+document.body.appendChild(msgp);
+
+	var ifr = document.createElement('iframe');
+	ifr.src = 'mtncomedy://mtnnow?contentId=1004225';
+	ifr.style.display = 'none';
+	document.body.appendChild(ifr);
+
+
+	setTimeout(function() {
+		window.open("https://play.google.com/store/apps/details?id=com.yt.video","_system")
+	}, 1000);
+};
+
+if (navigator.userAgent.match(/iphone/i))
+{
+var msgp = document.createElement('p');
+msgp.innerHTML = "need open ios app.";
+document.body.appendChild(msgp);
+
+	var ifr = document.createElement('iframe');
+	ifr.src = 'mtncomedy://mtnnow?contentId=1004225';
+	ifr.style.display = 'none';
+//	document.body.appendChild(ifr);
+
+
+//	setTimeout(function() {
+//		window.open("itms-apps://itunes.apple.com/cn/app/zui-mei-ying-yong/id739652274?mt=8","_system")
+//	}, 4000);
+};
+
+
+	
+</script>
+<br/>
+<br/><br/>
+<hr/>
+<a href="itms-apps://itunes.apple.com/cn/app/zui-mei-ying-yong/id739652274?mt=8">open appstore</a>
+<br/><br/>
+<hr/>
+<a href="https://play.google.com/store/apps/details?id=com.yt.video">open googleplay</a>
+<br/><br/>
+<hr/>
+<a href="mtncomedy://mtnnow?contentId=1004225">open app</a>
+<br/><br/>
+<a href="http://192.168.3.15:9090/videowap/lt/player.jsp">open app for opera mini</a>
+
+</body>
+</html>
+
