@@ -1,17 +1,6 @@
-var begin = new Date(2014,5,20,8,0,0);
+var begin = new Date(2014,4,20,8,0,0);
+var baby_born = new Date(2016,0,21,12,47,22);
 
-function getDJS(now){
-	var date = new Date(begin.getTime());
-	var year  = date.getFullYear();
-	var years = 0;
-	while(date < now){
-		year += 1;
-		years++;
-		date.setFullYear(year);
-	}
-	$("#years").html(years);
-	return getYQZG(now,date);
-}
 function getYQZG(begin,end){
 	var dur = (end.getTime() - begin.getTime())/1000;
 
@@ -43,8 +32,9 @@ function timedCount()
 {
 	var now = new Date();
 	var t=getYQZG(begin,now);
-	$("#djs").html(format(getDJS(now)));
+	var baby_old = getYQZG(baby_born,now);
 	$("#yqzg").html(format(t));
+	$("#baby_old").html(format(baby_old));
 	if(t[3] == 0){
 		fireworks();
 	}
