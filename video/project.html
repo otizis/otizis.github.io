@@ -51,17 +51,34 @@
 	border-radius: 3px;
 	width:40px;
 }
-.step .flag1 {
-    background-image: url("data:image/jpg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwMDAwYEBAMFBwYHBwcGBwcICQsJCAgKCAcHCg0KCgsMDAwMBwkODw0MDgsMDAz/2wBDAQICAgMDAwYDAwYMCAcIDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAz/wAARCABBABgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD6S+JX7U3xK+E3w58QeKta+DNxDo/hnTbjVb+SLxbatJHbwRNLIyhUySFQkAc5r54f/gor8dNahuL6KD4U6T5nmTppVzpV5ftaLnaLeS6F8sbsCR+8WHbkMccbT91+PfA+l/EvwNrXhzW7ZbzRfEFhPpt/AWMYmt5o2jkTcpDLlGYZBBGeCK/Meb9mDxdp/wC3B/wqex+KCtosdq1hZ61qXh97u6h1F7Q36WkipdxJJOunosnnjYh+YeTuJJ++40q5rhpUHgqtozkodPie3Q/nnOnmdWlFZZUjSlfVy1v2SunrufYHwM/bO+I3x6+G2n+JtJ+DMjWt1c3dmVbxfboUmtpZbaeMbkGUWaCUjIzt2EZBO0r174FfBbSf2e/hRpPg/Q5L2bT9JWVvPvJfOuLqWW4kuJppHwMySSzSSMV2/M3y7U+SivtMLhavsYqvO8ra6I9yWIktktls3+Op17jchHHTuMivz2k8H6s//BRdvCI17C/8LWHiP7d9k/fCIaL/AGh9l+//AM8gbXzM/wCqYjbj5a/Qqvhn/nL03/Y1/wDunmvjvELDwqSy9yvpiKdtWu54OZQjJUOb/n7D9T7m70UDpRX6JGKO6olzXXUK+Gf+cvTf9jX/AO6ea+5q+Gf+cvTf9jX/AO6ea+C483wH/YRS/NnHj/8Alz/18h+p9zDpRQOlFffRO2pv8hN9fDO7/jb23/Y2f+6ea+50G91GPvHHHJr5F/4UF46/4ed/8JgfC9wvg3+1xqw1v+0LHyPKPhwWO3yfP+1bvtLbOYNvGd2Onw/GmFr4l4L2MX7leEnpfRX7HPiaM6vslC2lSL3tor33PrkUUgPzccn0FFfac0vsr9DflnJJ2+53IR1qbRv+QbJ/1yX+T0UUL4PmFb44ev6FeL79FFFc+O+Jeh35L/Bf+Jn/2Q==");
-    height: 66px;
-    width: 27px;
+.step .flag{
+    background-image: url("2.jpg");
+    height: 57px;
+    width: 10px;
     margin-left: 28px;
+}
+.step .clce{
+	background-color: rgb(83, 198, 103);
+	height: 8px;
+	width: 8px;
+	margin-left: 30px;
+	border: 1px solid #000;
+	border-radius: 3px;
+}
+.step .t1{
+	background-color: rgb(83, 198, 103);
+}
+.step .t2{
+	background-color: rgb(204, 255, 204);
+}
+.step .t3{
+	background-color: red;
 }
 .ot .line {
     height: 2px;
     background-color: black;
     position: relative;
-    top: 46px;
+    top: 43px;
 }
 </style>
 </head>
@@ -106,7 +123,8 @@
 		<div class="line"></div>
 		<div class="step" v-for="step in stepListForOT">
 			<div class="name">{{step.stepName}}</div>
-			<div class="flag1"></div>
+			<div class="clce {{step.type}}"></div>
+			<div class="flag"></div>
 			<div class="date">{{step.dateStr}}</div>
 		</div>
 	</div>
@@ -127,15 +145,15 @@ new Vue({
 	    start:1,
 	    firstStepName:'需求分析确认',
 	    steps:[
-				{day:3,name:"需求确认"},
-				{day:3,name:"需求设计评审"},
-				{day:3,name:"开始需求编码"},
-				{day:3,name:"开始每日构建"},
-				{day:3,name:"编码结束"},
-				{day:3,name:"SDV1"},
-				{day:3,name:"SDV2"},
-				{day:3,name:"SIT测试环境验收"},
-				{day:3,name:"现网升级"}
+				{day:3,name:"需求确认",type:"t1"},
+				{day:3,name:"需求设计评审",type:"t1"},
+				{day:3,name:"开始需求编码",type:"t1"},
+				{day:3,name:"开始每日构建",type:"t2"},
+				{day:3,name:"编码结束",type:"t1"},
+				{day:3,name:"SDV1",type:"t2"},
+				{day:3,name:"SDV2",type:"t2"},
+				{day:3,name:"SIT测试环境验收",type:"t3"},
+				{day:3,name:"现网升级",type:"t3"}
 	    ]
 	  },
 	  computed: {
@@ -201,6 +219,7 @@ new Vue({
 	  					temp++;
 	  				}
 	  				list[temp].stepName += (this.steps[i].name+";");
+	  				list[temp].type = this.steps[i].type;
 	  			}
 	  			return list;
 		  	
@@ -214,7 +233,8 @@ new Vue({
 	  					dateStr = dateStr.replace('/','.');
 		  				list.push({
 		  					dateStr:dateStr,
-		  					stepName:this.stepList[i].stepName.replace(';','')
+		  					stepName:this.stepList[i].stepName.replace(';',''),
+		  					type:this.stepList[i].type
 		  				});
 	  				}
 	  			}
