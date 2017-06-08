@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html class=" js-no-overflow-scrolling">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="cache-control" content="max-age=0"/>
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta name="keywords" content="猿纵;杭州猿纵;猿纵信息技术有限公司;杭州猿纵信息技术有限公司"/>
+    <meta name="description" content="猿纵"/>
+    <meta name="apple-touch-fullscreen" content="yes"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>杭州猿纵</title>
+    <script type="text/javascript">
+    // 参考 源码  http://www.cnblogs.com/digdeep/p/4256153.html
+//    if(!navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i))
+//    {
+//        location.replace("http://www.yuanzonginfo.com");
+//    }
+
+
+    </script>
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, "Microsoft YaHei", "微软雅黑", sans-serif;
+            text-align: center;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .loading {
+            background: url("image/loading_bg.png") no-repeat black;
+            background-size: cover;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+        }
+
+        .loading .logo {
+            background: url("image/logo-h5-wbj.gif") no-repeat;
+            background-size: cover;
+            width: 5rem;
+            height: 6rem;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            margin-left: -2.5rem;
+        }
+
+        .loading .name {
+            font-size: 1.3rem;
+            color: #f4c21c;
+            width: 80%;
+            height: 1rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -40%;
+        }
+
+        .loading .percent {
+            position: absolute;
+            left: 50%;
+            bottom: 9%;
+            color: #c0fbff;
+            margin-left: -1rem;
+        }
+    </style>
+</head>
+<body class="H5FullscreenPage">
+<!-- 加载页-->
+<div class="loading">
+    <div class="logo"></div>
+    <div class="name">杭州猿纵信息技术有限公司</div>
+    <div class="percent"><span id="percent">0</span>%</div>
+</div>
+
+<div class="H5FullscreenPage-wrap">
+    <div class="item item1">
+        <div class="title part fadeIn">
+            <div class="arr left_arrow"></div>
+            <div class="text">
+                <span>行业软件解决方案专家</span><br/>
+                <span>业务支撑平台+客户端应用</span>
+            </div>
+            <div class="arr right_arrow"></div>
+        </div>
+        <div class="content">
+            <div class="yun">
+                <div class="icon"></div>
+                <span class="bold">云服务</span><br/>
+                <span>音视频应用·移动教育·游戏平台<br/>互联网酒店·互联网玩具等</span>
+            </div>
+            <div class="line1 part slideUp" data-delay="500"></div>
+            <div class="zhuji part slideUp" data-delay="500">
+                <div class="icon"></div>
+                <span>业务支撑平台</span>
+            </div>
+            <div class="line2 ">
+                <div class="s1 part slideUp" data-delay="1000">
+                    <div class="dot"></div>
+                </div>
+                <div class="s2 part slideUp" data-delay="1500">
+                    <div class="dot"></div>
+                </div>
+                <div class="s3 part slideUp" data-delay="1500">
+                    <div class="dot"></div>
+                </div>
+                <div class="v4 part slideUp" data-delay="1200"></div>
+            </div>
+            <div class="drive">
+                <div class="icon icon1 part slideUp" data-delay="1800"></div>
+                <div class="icon icon2 part slideUp" data-delay="1800"></div>
+                <div class="icon icon3 part slideUp" data-delay="1800"></div>
+                <div class="desc part slideUp" data-delay="1800">
+                    <span>客户端<br/>iOS·Android·H5·Web·微信</span>
+                </div>
+            </div>
+        </div>
+        <div class="page">01/<span class="total">11</span></div>
+        <div class="yuanzong">杭州猿纵</div>
+    </div>
+
+    <div class="item item2">
+        <div class="title part fadeIn">
+            <div class="arr left_arrow"></div>
+            <div class="text">
+                <span>数字内容综合应用方案</span>
+            </div>
+            <div class="arr right_arrow"></div>
+        </div>
+        <div class="content">
+            <div class="yuan">
+                <div class="huan y1 light part slideDown" data-delay="500"
+                     data-desc="基于移动终端实现语音的实时录制、转发、分享，同时借助行业的相关支付接口，为用户提供语音问答的相关服务。"
+                     data-voice-left="50" data-voice-top="50"
+                     data-game-left="79" data-game-top="37"
+                     data-video-left="21" data-video-top="37"
+                     data-book-left="32" data-book-top="18"
+                     data-media-left="68" data-media-top="18"
+                >
+                    <div class="inner">
+                        <div class="voice"></div>
+                        <span>语音</span>
+                    </div>
+                </div>
+                <div class="huan y2 part slideDown" data-delay="800"
+                     data-desc="以游戏大厅和管理平台为载体，提供产品的上架管理、分发管理、交易管理、渠道管理、用户管理、管服管理待模块服务。"
+                     data-voice-left="21" data-voice-top="37"
+                     data-game-left="50" data-game-top="50"
+                     data-video-left="32" data-video-top="18"
+                     data-book-left="68" data-book-top="18"
+                     data-media-left="79" data-media-top="37"
+                >
+                    <div class="inner">
+                        <div class="game"></div>
+                        <span>游戏</span>
+                    </div>
+                </div>
+                <div class="huan y3 part slideDown" data-delay="800"
+                     data-desc="支持视频多格式接入、视频压缩与转码、视频点播、视频直播、视频异地备份，向用户提供基于移动终端和PC的点播和直播服务。"
+                     data-voice-left="79" data-voice-top="37"
+                     data-game-left="68" data-game-top="18"
+                     data-video-left="50" data-video-top="50"
+                     data-book-left="21" data-book-top="37"
+                     data-media-left="32" data-media-top="18"
+                >
+                    <div class="inner">
+                        <div class="video"></div>
+                        <span>视频</span>
+                    </div>
+                </div>
+                <div class="huan y4 part slideDown" data-delay="1000"
+                     data-desc="以手机、专用阅读终端、平板PC等为主要载体，为用户提供书籍、连载、杂志、漫画等各类电子书的订购、下载服务，具备了投票、评论、推荐等互动功能。"
+                     data-voice-left="68" data-voice-top="18"
+                     data-game-left="32" data-game-top="18"
+                     data-video-left="79" data-video-top="37"
+                     data-book-left="50" data-book-top="50"
+                     data-media-left="21" data-media-top="37"
+                >
+                    <div class="inner">
+                        <div class="book"></div>
+                        <span>图文</span>
+                    </div>
+                </div>
+                <div class="huan y5 part slideDown" data-delay="1000"
+                     data-desc="基于图文、视频、音频的综合能力，为用户提供多终端、多媒介的数字内容产品服务。"
+                     data-voice-left="32" data-voice-top="18"
+                     data-game-left="21" data-game-top="37"
+                     data-video-left="68" data-video-top="18"
+                     data-book-left="79" data-book-top="37"
+                     data-media-left="50" data-media-top="50">
+                    <div class="inner" style=" width: 3rem; height: 3rem; margin: -1.5rem 0 0 -1.5rem; ">
+                        <div class="media"></div>
+                        <span>多媒体</span>
+                    </div>
+                </div>
+            </div>
+            <div class="text " >
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="ablity">基于移动终端实现语音的实时录制、转发、分享，同时借助行业的相关支付接口，为用户提供语音问答的相关服务。</span>
+            </div>
+        </div>
+        <div class="page">02/<span class="total">11</span></div>
+        <div class="yuanzong">杭州猿纵</div>
+    </div>
+
+    <div class="item item5">
+        <div class="tab_name">
+            <span>移动教育领域</span>
+        </div>
+        <div class="content">
+            <div class="c1">尚学·智慧课堂</div>
+            <div class="c2">
+                新一代的课堂教学解决方案，是猿纵与上市公司中文传媒合资的自研产品，由专用学生平板终端、教师备授课软件、学生学习软件和家校互动APP共同构成。
+                <p>已有<span>几十所中小学</span>在课堂使用，获得老师和学生的好评。</p>
+            </div>
+            <div class="c3 part slideLeft">
+                <img data-lsrc="image/5_content_img.png" src="">
+            </div>
+        </div>
+        <div class="page">03/<span class="total">11</span></div>
+        <div class="yuanzong">杭州猿纵</div>
+    </div>
+
+    <div class="item item6">
+        <div class="tab_name">
+            <span>多媒体应用案例</span>
+        </div>
+        <div class="content">
+            <div class="c1">移动咪咕学堂</div>
+            <div class="c2">
+                团队曾担当中国移动咪咕学堂的全面研发和支撑。产品覆盖：K12、早教、英语、职业教育等垂直领域。
+                <p>
+                    平台架构支持<span>亿级用户数</span>规模
+                </p>
+            </div>
+            <div class="c3 part slideLeft">
+                <img src="" data-lsrc="image/6_content_img.png">
+            </div>
+        </div>
+        <div class="page">04/<span class="total">11</span></div>
+        <div class="yuanzong">杭州猿纵</div>
+    </div>
+
+    <div class="item item11">
+        <div class="tab_name">
+            <span>O2O应用案例</span>
+        </div>
+        <div class="content">
+            <div class="c1">中国移动微商城</div>
+            <div class="c2">
+                2014年为浙江移动研发的商家优惠O2O平台，是整合本地生活消费特色，结合电子券+手机支付的便捷支付方式并基于无线城市应用打造的移动商家联盟平台。
+            </div>
+            <div class="c3 part slideLeft">
+                <img src="" data-lsrc="image/11_content_img.png">
+            </div>
+        </div>
+        <div class="page">05/<span class="total">11</span></div>
+        <div class="yuanzong">杭州猿纵</div>
+    </div>
+
+    <div class="item item3">
+        <div class="tab_name">
+            <span>游戏应用案例</span>
+        </div>
+        <div class="content">
+            <div class="c1">华为海外游戏大厅</div>
+            <div class="c2">2014~2015年为华为在中东、非洲、拉美、南太等的21个国家提供游戏大厅客户端及平台产品。</div>
+            <div class="c3 part slideLeft">
+                <img src="" data-lsrc="image/3_content_game.png">
+            </div>
+        </div>
+        <div class="page">06/<span class="total">11</span></div>
+        <div class="yuanzong">杭州猿纵</div>
+    </div>
+
+    <div class="item item7">
+        <div class="tab_name">
+            <span>视频应用案例</span>
+        </div>
+        <div class="content">
+            <div class="c1">华为北非短视频产品</div>
+            <div class="c2">
+                2015年为北非的尼日利亚等国开发短视频产品。该产品为用户提供视频点播及教堂礼拜直播的服务。
+            </div>
+            <div class="c3 part slideLeft">
+                <img src="" data-lsrc="image/7_content_img.png">
+            </div>
+        </div>
+        <div class="page">07/<span class="total">11</span></div>
+        <div class="yuanzong">杭州猿纵</div>
+    </div>
+
+    <div class="item item4">
+        <div class="tab_name">
+            <span>语音应用案例</span>
+        </div>
+        <div class="content">
+            <div class="c1">SIG日本付费语音问答 <br/>Brighter Man</div>
+            <div class="c2">Brighter Man是一款付费语音问答产品，用户付费向各领域的大V进行提问，其他浏览用户可以付费进行偷听；Brighter Man是以音频为传播介质的分享互动平台。</div>
+            <div class="c3 part slideLeft">
+                <img data-lsrc="image/4_content_img.png" src="">
+            </div>
+        </div>
+        <div class="page">08/<span class="total">11</span></div>
+        <div class="yuanzong">杭州猿纵</div>
+    </div>
+
+    <div class="item item8">
+        <div class="title">
+            <div class="arr left_arrow"></div>
+            <div class="text part fadeIn">
+                <span>骨干人员</span>
+            </div>
+            <div class="arr right_arrow"></div>
+        </div>
+        <div class="content ">
+            <div class="person person1 part fadeIn">
+                <div class="name">杨沛江</div>
+                <div class="desc">
+                    <p>CEO</p>
+                    <p>华为项目总监</p>
+                    <p>9年团队管理经验</p>
+                </div>
+            </div>
+            <div class="person person2 part fadeIn">
+                <div class="name">杨西平</div>
+                <div class="desc">
+                    <p>产品总监</p>
+                    <p>曾任职华为3com</p>
+                    <p>10年产品设计经验</p>
+                </div>
+            </div>
+            <div class="person person3 part fadeIn">
+                <div class="name">许&nbsp;盛</div>
+                <div class="desc">
+                    <p>解决方案/QA总监</p>
+                    <p>前中国移动/电信项目经理</p>
+                    <p>10年项目管理经验</p>
+                </div>
+            </div>
+            <div class="person person4 part fadeIn">
+                <div class="name">何云良</div>
+                <div class="desc">
+                    <p>平台架构师</p>
+                    <p>原华为项目架构师</p>
+                    <p>9年平台设计开发经验</p>
+                </div>
+            </div>
+            <div class="person person5 part fadeIn">
+                <div class="name">杨卫国</div>
+                <div class="desc">
+                    <p>客户端总监</p>
+                    <p>原华为客户端开发负责人</p>
+                    <p>9年客户端设计开发经验</p>
+                </div>
+            </div>
+        </div>
+        <div class="page">09/<span class="total">11</span></div>
+        <div class="yuanzong">杭州猿纵</div>
+    </div>
+
+    <div class="item item9">
+        <div class="title part fadeIn">
+            <div class="arr left_arrow"></div>
+            <div class="text">
+                <span>合作伙伴</span>
+            </div>
+            <div class="arr right_arrow"></div>
+        </div>
+        <div class="content part zoomIn">
+            <img src="" data-lsrc="image/8_partners.png" alt="" width="100%">
+        </div>
+        <div class="page">10/<span class="total">11</span></div>
+        <div class="yuanzong">杭州猿纵</div>
+    </div>
+
+    <div class="item item10">
+        <div class="title part fadeIn">
+            <div class="arr left_arrow"></div>
+            <div class="text">
+                <span>联系我们</span>
+            </div>
+            <div class="arr right_arrow"></div>
+        </div>
+        <div class="content">
+            <div class="qcode part fadeIn">
+                <div>
+                    <img src="" data-lsrc="image/qcode.png" alt="二维码">
+                </div>
+                <div><span>杭州猿纵公众号</span></div>
+            </div>
+            <div class="text part fadeIn">
+                <p>0571-81109970</p>
+                <p>contact@yuanzonginfo.com</p>
+                <p>杭州市西湖区绿城西溪国际商务中心</p>
+            </div>
+            <div class="footer part fadeIn" data-delay="1000">
+                <p>COPYRIGHT©2016 - 2017 YUANZONG Inc. ALL RIGHTS RESERVED</p>
+                <p>杭州猿纵 版权所有</p>
+                <p>工商备案</p>
+            </div>
+        </div>
+        <div class="page">11/<span class="total">11</span></div>
+    </div>
+</div>
+
+<script src="js/zepto.min.js"></script>
+<script type="text/javascript">
+    function includeLinkStyle(url) {
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = url;
+        document.getElementsByTagName("head")[0].appendChild(link);
+    }
+    function includeLinkScript(src) {
+        var script = document.createElement("script");
+        script.src = src;
+        document.getElementsByTagName("head")[0].appendChild(script);
+    }
+    if (window.navigator.geolocation) {
+        var options = {
+           enableHighAccuracy: true,
+        };
+        window.navigator.geolocation.getCurrentPosition(handleSuccess, handleError, options);
+    } 
+    else 
+    {
+        console.log("...1")
+    }
+
+    function handleSuccess(position){
+        // 获取到当前位置经纬度  本例中是chrome浏览器取到的是google地图中的经纬度
+        console.log("...2")
+        if(location.href.indexOf("lng") != -1){
+        return;
+        }
+        var lng = position.coords.longitude;
+        var lat = position.coords.latitude;
+        includeLinkScript("http://www.yuanzonginfo.com/m/js/all.min.js?from=zl&lng="+lng+"&lat="+lat);
+    }
+
+    function handleError(error){
+        console.log("...3")
+         switch (error.code) {
+        case 1:
+            console.log("位置服务被拒绝。");
+            break;
+        case 2:
+            console.log("暂时获取不到位置信息。");
+            break;
+        case 3:
+            console.log("获取位置信息超时。");
+            break;
+        default:
+            console.log("未知错误。");
+            break;
+    }
+    }
+
+    function loading() {
+        var percent$ = $("#percent");
+        var percent = percent$.text();
+        if (percent == 10) {
+            includeLinkScript("js/all.min.js");
+        }
+        if (percent == 30) {
+            includeLinkStyle("css/all-min.css?v=20170124");
+        }
+        if (percent == 55) {
+            $("img").each(function (index,item) {
+                $(item).attr("src",$(item).data("lsrc"));
+            });
+        }
+        if (percent == 80) {
+            H5FullscreenPage.init({
+                'type': 4, //取1到8 不同翻页效果
+                'pageShow': function () {
+                },
+                'pageHide': function () {
+                }
+            });
+        }
+        if (percent == 100) {
+            alert("错误");
+            clearInterval(loadFn);
+            return;
+        }
+        percent$.text(percent * 1 + 1);
+    }
+    var loadFn = setInterval(loading, 22);
+</script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?b1c394655436a32d1a49077295f354a0";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body>
+</html>
