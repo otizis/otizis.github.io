@@ -23,9 +23,8 @@ $http.get({
         views: [
             {
                 type: "web",
-                id:'webView',
                 props: {
-                    html: "<audio id='audio' autoplay loop controls='controls'"
+                    html: "<audio style='width:100%;height:30px' id='audio' autoplay loop controls='controls'"
                         + " src='"+data.data[0].url+"'></audio>"
                 },
                 events: {
@@ -37,7 +36,7 @@ $http.get({
                 },
                 layout: function (make, views) {
                     make.top.equalTo(0);
-                    make.height.equalTo(100)
+                    make.height.equalTo(200)
                     make.width.equalTo(views.super)
                 }
             }
@@ -45,81 +44,40 @@ $http.get({
             {
                 type: "button",
                 props: {
-                    title: "X2倍速"
+                    title: "设置"
                 },
                 events: {
                     tapped: function (sender) {
-                        var webView = $("webView")
-                        webView.notify("setPlayRate", { "rate": 2 })
+                        var webView = $("web")
+                        var slider = $("slider")
+                        $console.info("enter set playrate:" + slider)
+                        webView.notify("setPlayRate", { "rate": slider.value })
                     }
                 },
                 layout: function (make) {
                     make.height.equalTo(50)
                     make.width.equalTo(100)
                     make.left.equalTo(0)
-                    make.top.equalTo(120)
+                    make.top.equalTo(220)
                 }
             }
             ,
             {
-                type: "button",
+                type: "slider",
                 props: {
-                    title: "X1.25倍速"
+                  value: 1,
+                  max: 2.0,
+                  min: 1.0
                 },
-                events: {
-                    tapped: function (sender) {
-                        var webView = $("webView")
-                        webView.notify("setPlayRate", { "rate": 1.25 })
-                    }
-                },
-                layout: function (make) {
+                layout: function(make, view) {
                     make.height.equalTo(50)
-                    make.width.equalTo(100)
-                    make.left.equalTo(120)
-                    make.top.equalTo(120)
-                }
-            }
-            ,
-            {
-                type: "button",
-                props: {
-                    title: "X1.5倍速"
-                },
-                events: {
-                    tapped: function (sender) {
-                        var webView = $("webView")
-                        webView.notify("setPlayRate", { "rate": 1.5 })
-                    }
-                },
-                layout: function (make) {
-                    make.height.equalTo(50)
-                    make.width.equalTo(100)
-                    make.left.equalTo(240)
-                    make.top.equalTo(120)
-                }
-            }
-            ,
-            {
-                type: "button",
-                props: {
-                    title: "X1倍速"
-                },
-                events: {
-                    tapped: function (sender) {
-                        var webView = $("webView")
-                        webView.notify("setPlayRate", { "rate": 1 })
-                    }
-                },
-                layout: function (make) {
-                    make.height.equalTo(50)
-                    make.width.equalTo(100)
+                    make.width.equalTo(views.super)
                     make.left.equalTo(0)
-                    make.top.equalTo(360)
+                    make.top.equalTo(340)
                 }
-            }
+              }
+            
         ]
     })
     }
   })
-
-
