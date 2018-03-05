@@ -1,25 +1,29 @@
 var link = $clipboard.link;
 var items = link.split('/');
-items.forEach(element => {
-    $console.info(element)
-});
 var url;
 if(items[3] == 'song'){
     url = "https://api.imjad.cn/cloudmusic/?type=song&id="+items[4]
 }else{
     url = "https://api.imjad.cn/cloudmusic/?type=dj&id="+items[4]
 }
-
+if(!items[4]){
+    $ui.alert({
+        title: "失败",
+        message: "没有获取到id："+link,
+    })
+    return;
+}
 
 $http.get({
     url: url,
     handler: function(resp) {
       var data = resp.data
-      $console.info(data);
+      $console.info(JSON.stringify(data));
       $ui.render({
         views: [
             {
                 type: "web",
+                id:'webView',
                 props: {
                     html: "<audio id='audio' autoplay loop controls='controls'"
                         + " src='"+data.data[0].url+"'></audio>"
@@ -69,7 +73,7 @@ $http.get({
                     }
                 },
                 layout: function (make) {
-                    make.height.equalTo(100)
+                    make.height.equalTo(50)
                     make.width.equalTo(100)
                     make.left.equalTo(120)
                     make.top.equalTo(120)
@@ -88,7 +92,7 @@ $http.get({
                     }
                 },
                 layout: function (make) {
-                    make.height.equalTo(100)
+                    make.height.equalTo(50)
                     make.width.equalTo(100)
                     make.left.equalTo(240)
                     make.top.equalTo(120)
@@ -107,10 +111,10 @@ $http.get({
                     }
                 },
                 layout: function (make) {
-                    make.height.equalTo(100)
+                    make.height.equalTo(50)
                     make.width.equalTo(100)
-                    make.left.equalTo(360)
-                    make.top.equalTo(120)
+                    make.left.equalTo(0)
+                    make.top.equalTo(360)
                 }
             }
         ]
