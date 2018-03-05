@@ -49,9 +49,12 @@ $http.get({
                 events: {
                     tapped: function (sender) {
                         var webView = $("web")
-                        var slider = $("slider")
-                        $console.info("enter set playrate:" + slider)
-                        webView.notify("setPlayRate", { "rate": slider.value })
+                        webView.eval({
+                            script:'document.getElementById("audio").playbackRate='+1.5
+                        })
+                        // var slider = $("slider")
+                        // $console.info("enter set playrate:" + slider.value)
+                        // webView.notify("setPlayRate", { "rate": slider.value })
                     }
                 },
                 layout: function (make) {
@@ -69,7 +72,7 @@ $http.get({
                   max: 2.0,
                   min: 1.0
                 },
-                layout: function(make, view) {
+                layout: function(make, views) {
                     make.height.equalTo(50)
                     make.width.equalTo(views.super)
                     make.left.equalTo(0)
@@ -81,3 +84,5 @@ $http.get({
     })
     }
   })
+
+
