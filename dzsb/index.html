@@ -14,20 +14,22 @@
 </body>
     <script>
     function h(){
-        return "网页可见区域宽："+ document.body.clientWidth+"\n"
-                +"网页可见区域高："+ document.body.clientHeight+"\n"
-                +"网页可见区域宽(包括边线的宽)："+ document.body.offsetWidth +"\n"
-                +"网页可见区域高(包括边线的高)："+ document.body.offsetHeight +"\n"
-                +"网页正文全文宽："+ document.body.scrollWidth+"\n"
-                +"网页正文全文高："+ document.body.scrollHeight+"\n"
-                +"网页被卷去的高："+ document.body.scrollTop+"\n"
-                +"网页被卷去的左："+ document.body.scrollLeft+"\n"
-                +"网页正文部分上："+ window.screenTop+"\n"
-                +"网页正文部分左："+ window.screenLeft+"\n"
-                +"屏幕分辨率的高："+ window.screen.height+"\n"
-                +"屏幕分辨率的宽："+ window.screen.width+"\n"
-                +"屏幕可用工作区高度："+ window.screen.availHeight+"\n"
-                +"屏幕可用工作区宽度："+ window.screen.availWidth;
+        return "网页可见区域宽:document.body.clientWidth："+ document.body.clientWidth+"\n"
+                +"网页可见区域高;document.body.clientHeight："+ document.body.clientHeight+"\n"
+                +"网页可见区域宽(包括边线的宽)document.body.offsetWidth："+ document.body.offsetWidth +"\n"
+                +"网页可见区域高(包括边线的高)：document.body.offsetHeight；"+ document.body.offsetHeight +"\n"
+                +"网页正文全文宽：document.body.scrollWidth:"+ document.body.scrollWidth+"\n"
+                +"网页正文全文高：document.body.scrollHeight;"+ document.body.scrollHeight+"\n"
+                +"网页被卷去的高：document.body.scrollTop；"+ document.body.scrollTop+"\n"
+                +"网页被卷去的左：document.body.scrollLeft:"+ document.body.scrollLeft+"\n"
+                +"网页正文部分上：window.screenTop:"+ window.screenTop+"\n"
+                +"网页正文部分左：window.screenLeft:"+ window.screenLeft+"\n"
+                +"网页可见区域高：document.documentElement.clientHeight:"+ document.documentElement.clientHeight+"\n"
+                +"网页可见区域宽：document.documentElement.clientWidth:"+ document.documentElement.clientWidth+"\n"
+                +"屏幕分辨率的高：window.screen.height;"+ window.screen.height+"\n"
+                +"屏幕分辨率的宽：window.screen.width："+ window.screen.width+"\n"
+                +"屏幕可用工作区高度：window.screen.availHeight："+ window.screen.availHeight+"\n"
+                +"屏幕可用工作区宽度：window.screen.availWidth："+ window.screen.availWidth;
     }
     setInterval(function(){
         document.getElementById("aa").innerText = h();
