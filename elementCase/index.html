@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+
+<body>
+    <div id="tpl">
+        <h2>主页面</h2>
+        <iframe
+         scrolling="yes"
+         frameborder="1"
+         style="width:100%;min-height:500px;overflow:visible;background:#fff;"
+            :src="frameUrl"></iframe>
+
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#tpl',
+        data: {
+            frameUrl: "init.html"
+        },
+        watch: {
+            frameUrl: function () {
+                console.log("history.len", history.length)
+            }
+        },
+        created: function () {
+            console.log("history.len", history.length)
+        },
+        methods: {
+        }
+    })
+</script>
+
+</html>
