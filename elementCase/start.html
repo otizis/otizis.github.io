@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,8 +24,8 @@
             <el-radio-button label="Z" @click.native="goto('pageY.html')" >pageY.html</el-radio-button>
         </el-radio-group>
         <hr>
-        <my-button @click.native="goto('pageF.html')" ></my-button>
-        <my-button @click.native="goto('pagek.html')" ></my-button>
+        <my-button @click.native="goto('pageF.html')" >pageF.html</my-button>
+        <my-button @click.native="goto('pageK.html')" >pageK.html</my-button>
     </div>
 </body>
 <script>
@@ -47,47 +46,3 @@
 </script>
 
 </html>
-=======
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>index</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-    <!-- 引入样式 -->
-    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-    <!-- 引入组件库 -->
-    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-</head>
-
-<body>
-    <div id="tpl">
-        <h2>start.html</h2>
-        <button @click="goto('pageA.html')">pageA.html</button>
-        <button @click="goto('pageB.html')">pageB.html</button>
-        <hr>
-        <el-radio-group value="">
-            <el-radio-button label="X" @click.native="goto('pageX.html')" >pageX.html</el-radio-button>
-            <el-radio-button label="Y" @click.native="goto('pageY.html')" >pageY.html</el-radio-button>
-        </el-radio-group>
-    </div>
-</body>
-<script>
-    new Vue({
-        el: '#tpl',
-        methods: {
-            goBack:function(){
-                history.back()
-            },
-            goto:function(url){
-                location.href=url;
-            }
-        }
-    })
-</script>
-
-</html>
->>>>>>> 6063056e85d454959820c51c938fc6e13150f26e
