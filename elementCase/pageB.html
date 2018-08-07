@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+
+<body>
+        <div id="tpl">
+            <h2>pageB.html</h2>
+            <button @click="goBack">goBack</button>
+            <hr>
+            <button @click="goto('pageA.html')">pageA.html</button>
+            <button @click="goto('pageB.html')">pageB.html</button>
+            <hr>
+            <el-radio-group value="">
+                <el-radio-button label="X" @click.native="goto('pageX.html')" >pageX.html</el-radio-button>
+                <el-radio-button label="Y" @click.native="goto('pageY.html')" >pageY.html</el-radio-button>
+            </el-radio-group>
+        </div>
+    </body>
+    <script>
+        new Vue({
+            el: '#tpl',
+            methods: {
+                goBack:function(){
+                    history.back()
+                },
+                goto:function(url){
+                    location.href=url;
+                }
+            }
+        })
+    </script>
+
+</html>
